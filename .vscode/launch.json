@@ -9,10 +9,23 @@
       "request": "launch",
       "name": "Launch Bikeshop",
       "cwd": "${workspaceFolder}",
-      "skipFiles": ["<node_internals>/**"],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "start"],
+      "runtimeArgs": [
+        "run-script",
+        "start"
+      ],
       "port": 9229
+    },
+    {
+      "name": "Attach to Node Functions",
+      "type": "node",
+      "request": "attach",
+      "restart": true,
+      "port": 9229,
+      "preLaunchTask": "func: host start"
     }
   ]
 }
