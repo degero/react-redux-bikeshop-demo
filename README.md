@@ -33,6 +33,7 @@ REACT_APP_ env vars need to be injected on the build (EG: REACT_APP_GANALYTICS_T
 When adding the pipeline in the devops UI ensure you set this on the variables for the pipeline
 
 
+
 ## Azure Web App Deployment
 
 Deployment is done with Classic Azure devops release pipelines using the artifact from the azure-pipelines.yml
