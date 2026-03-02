@@ -3,6 +3,7 @@
   "configurations": {
     "bikeshop": {
       "appLocation": ".",
+      "apiLocation": "api",
       "outputLocation": "build",
       "apiLanguage": "node",
       "apiVersion": "22",
@@ -10,6 +11,7 @@
       "apiBuildCommand": "npm run build --if-present",
       "run": "npm start",
       "appDevserverUrl": "http://localhost:3000",
+      "apiDevserverUrl": "http://localhost:3001",
       "appName": "bikeshopchad",
       "resourceGroup": "rg-bikeshopchad-prod"
     }
