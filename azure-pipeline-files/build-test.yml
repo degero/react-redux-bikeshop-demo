@@ -18,7 +18,7 @@ steps:
 
 - script: |
     mkdir -p $(System.DefaultWorkingDirectory)/package-api
-    func pack ./api --no-build --output $(System.DefaultWorkingDirectory)/package-api
+    func pack $(System.DefaultWorkingDirectory)/api --no-build --output $(System.DefaultWorkingDirectory)/package-api
   displayName: 'func pack api'
 
 - task: PublishTestResults@2
