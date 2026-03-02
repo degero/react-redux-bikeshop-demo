@@ -36,9 +36,15 @@ app.http('bikes', {
             };
         } else if (request.method === 'POST') {
             // Handle POST request
+            const body = await request.json();
+            const newBike = {
+            id: bikes.length ? Math.max(...bikes.map(b => b.id)) + 1 : 1,
+            ...body,
+            };
+            bikes.push(newBike);
             return {
                 status: 201,
-                body: bike
+                jsonBody: newBike,
             };
         }
     }
@@ -57,9 +63,15 @@ app.http('manufacturers', {
             };
         } else if (request.method === 'POST') {
             // Handle POST request
+            const body = await request.json();
+            const newManufacturer = {
+                id: manufacturers.length ? Math.max(...manufacturers.map(m => m.id)) + 1 : 1,
+                ...body,
+            };
+            manufacturers.push(newManufacturer);
             return {
                 status: 201,
-                body: bike
+                jsonBody: newManufacturer,
             };
         }
     }
