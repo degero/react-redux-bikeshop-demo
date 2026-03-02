@@ -23,9 +23,8 @@ steps:
 
 - script: |
     mkdir -p $(System.DefaultWorkingDirectory)/package-api
-    func pack --no-build --output $(System.DefaultWorkingDirectory)/package-api
+    func pack ./api --no-build --output $(System.DefaultWorkingDirectory)/package-api
   displayName: 'func pack api'
-  workingDirectory: $(System.DefaultWorkingDirectory)/api
 
 - task: PublishTestResults@2
   displayName: 'Publish jest report'
