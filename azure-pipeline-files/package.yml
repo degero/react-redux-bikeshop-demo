@@ -1,6 +1,11 @@
 steps:
 - script: mkdir package && mkdir package/build && cp -R ./build/* ./package/build && cp json-server.js ./package/json-server.js && cp db.json ./package/db.json
   displayName: 'create deploy package folder'
+
+# Copy staticwebapp.config.json
+- script: cp $(System.DefaultWorkingDirectory)/staticwebapp.config.json $(System.DefaultWorkingDirectory)/package/staticwebapp.config.json
+  displayName: 'Copy staticwebapp.config.json'
+
 # Archive build artifact
 - task: ArchiveFiles@2
   displayName: 'Archive files'
