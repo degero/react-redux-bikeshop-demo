@@ -17,9 +17,11 @@ steps:
   displayName: 'npm install api'
 
 - script: |
+    echo '{"IsEncrypted":false,"Values":{"AzureWebJobsStorage":"","FUNCTIONS_WORKER_RUNTIME":"node"}}' > local.settings.json
     mkdir -p $(System.DefaultWorkingDirectory)/package-api
-    func pack $(System.DefaultWorkingDirectory)/api --no-build --output $(System.DefaultWorkingDirectory)/package-api
+    func pack . --no-build --output $(System.DefaultWorkingDirectory)/package-api
   displayName: 'func pack api'
+  workingDirectory: $(System.DefaultWorkingDirectory)/api
 
 - task: PublishTestResults@2
   displayName: 'Publish jest report'
