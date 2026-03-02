@@ -9,8 +9,14 @@ steps:
     includeRootFolder: false
     archiveFile: '$(System.DefaultWorkingDirectory)/$(buildVersion).zip'
 
-# Publish build artifact (To Azure Devops)
+# Publish web build artifact (To Azure Devops)
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/$(buildVersion).zip'
     artifactName: 'release-files'
+
+# Publish api build artifact (To Azure Devops)
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/package-api/api.zip'
+    artifactName: 'release-files-api'

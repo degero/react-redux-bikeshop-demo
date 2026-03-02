@@ -8,6 +8,26 @@ steps:
 - script: CI=true npm run build
   displayName: 'npm build'
   
+- script: CI=true npm run build
+  displayName: 'npm build'
+
+# API build
+- script: |
+      npm install -g azure-functions-core-tools@4 --unsafe-perm true
+  displayName: 'Install Azure Functions Core Tools'
+
+- script: npm ci
+  displayName: 'npm install api'
+  workingDirectory: $(System.DefaultWorkingDirectory)/api
+
+- script: func build
+  displayName: 'func build api'
+  workingDirectory: $(System.DefaultWorkingDirectory)/api
+
+- script: func pack $(System.DefaultWorkingDirectory)/package-api
+  displayName: 'func build api'
+  workingDirectory: $(System.DefaultWorkingDirectory)/api
+
 - task: PublishTestResults@2
   displayName: 'Publish jest report'
   condition: succeededOrFailed()
