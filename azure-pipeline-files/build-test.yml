@@ -21,8 +21,10 @@ steps:
   displayName: 'func build api'
   workingDirectory: $(System.DefaultWorkingDirectory)/api
 
-- script: func pack --output $(System.DefaultWorkingDirectory)/package-api
-  displayName: 'func build api'
+- script: |
+    mkdir -p $(System.DefaultWorkingDirectory)/package-api
+    func pack --output $(System.DefaultWorkingDirectory)/package-api
+  displayName: 'func pack api'
   workingDirectory: $(System.DefaultWorkingDirectory)/api
 
 - task: PublishTestResults@2
