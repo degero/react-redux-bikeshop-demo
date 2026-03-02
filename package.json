@@ -20,16 +20,12 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "run-p start:dev start:api",
-    "start:dev": "react-scripts --openssl-legacy-provider start",
-    "prestart:api": "node src/mockendpoint/createMockDb.js",
-    "start:api": "node --nolazy ./src/mockendpoint/apiServer.js",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "build-prod": "set \"CI=true\" && react-scripts build",
     "test": "react-scripts test",
     "testci": "set \"CI=true\" && react-scripts test --testResultsProcessor ./node_modules/jest-junit-reporter",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": ""
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
