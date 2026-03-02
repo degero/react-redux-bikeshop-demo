@@ -15,11 +15,6 @@ steps:
 
 - script: npm ci
   displayName: 'npm install api'
-  workingDirectory: $(System.DefaultWorkingDirectory)/api
-
-- script: func build
-  displayName: 'func build api'
-  workingDirectory: $(System.DefaultWorkingDirectory)/api
 
 - script: |
     mkdir -p $(System.DefaultWorkingDirectory)/package-api
